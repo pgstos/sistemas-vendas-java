@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="JavaSource"/>
+	<classpathentry kind="src" path="JavaTeste"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/home/paulo/Downloads/hibernate-commons-annotations-3.2.0.Final.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate"/>
+	<classpathentry kind="lib" path="/media/Dados/Compartilhamento/VideoAula/JarProjetoVenda/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="/media/Dados/Compartilhamento/VideoAula/JarProjetoVenda/apache-tomcat-7.0.63.zip"/>
+	<classpathentry kind="lib" path="/media/Dados/Compartilhamento/VideoAula/JarProjetoVenda/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/media/Dados/Compartilhamento/VideoAula/JarProjetoVenda/hibernate3.jar"/>
+	<classpathentry kind="lib" path="/media/Dados/Compartilhamento/VideoAula/JarProjetoVenda/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="/media/Dados/Compartilhamento/VideoAula/JarProjetoVenda/javassist-3.12.0.GA.jar"/>
+	<classpathentry kind="lib" path="/media/Dados/Compartilhamento/VideoAula/JarProjetoVenda/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="/media/Dados/Compartilhamento/VideoAula/JarProjetoVenda/mysql-connector-java-5.0.8.zip"/>
+	<classpathentry kind="lib" path="/media/Dados/Compartilhamento/VideoAula/JarProjetoVenda/slf4j-api-1.6.4.jar"/>
+	<classpathentry kind="lib" path="/home/paulo/Downloads/Libs/servlet-api.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
+</classpath>
