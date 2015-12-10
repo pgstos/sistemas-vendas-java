@@ -1,19 +1,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-	
-	<ui:composition template="/templates/template.xhtml">
-			<ui:define name="pageTitle">Cliente</ui:define>
-			<ui:define name="pageHeader">Cadastro de Clientes</ui:define>
-			<ui:define name="body">
-			<h:form id="edicao">
-		    <h:messages />
-			   <h:panelGrid columns="2">
-			      <h:outputLabel value="Nome" />
-			      <h:inputText value="#{clienteBean.clienteSelecionado.nome}" />
+
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="pageTitle">Cliente</ui:define>
+	<ui:define name="pageHeader">Cadastro de Clientes</ui:define>
+	<ui:define name="body">
+		<h:form id="edicao">
+			<h:inputHidden value="#{clienteBean.clienteSelecionado.id}" />
+
+			<h:messages />
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Nome" />
+				<h:inputText id="nomeCliente" value="#{clienteBean.clienteSelecionado.nome}" />
 
 				<h:outputLabel value="CPF:" />
 				<h:inputText value="#{clienteBean.clienteSelecionado.cpf}">
@@ -21,11 +23,11 @@
 				</h:inputText>
 
 				<h:outputLabel value="Endereço" />
-			      <h:inputText value="#{clienteBean.clienteSelecionado.endereco}" />
-			   
-			      <h:outputLabel value="E-mail" />
-			      <h:inputText value="#{clienteBean.clienteSelecionado.email}" />			      
-			    
+				<h:inputText value="#{clienteBean.clienteSelecionado.endereco}" />
+
+				<h:outputLabel value="E-mail" />
+				<h:inputText value="#{clienteBean.clienteSelecionado.email}" />
+
 				<h:outputLabel value="Renda" />
 				<h:inputText value="#{clienteBean.clienteSelecionado.renda}">
 					<f:convertNumber minFractionDigits="2" />
@@ -33,16 +35,18 @@
 
 
 			</h:panelGrid>
-			   
-			   <h:commandButton value="Salvar" action="#{clienteBean.salvar}" />
-			
-			</h:form>
-			
-			<h:form id="lista">
-			    <h:dataTable value="#{clienteBean.lista}" var="cliente" border="1" rendered="#{not empty clienteBean.lista}">
-			    <f:facet name="header">Listagem de Clientes</f:facet>
-			   <h:column>
-			    <f:facet name="header">Nome</f:facet>
+
+			<h:commandButton value="Salvar" action="#{clienteBean.salvar()}" />
+			<h:commandButton value="Novo" action="#{clienteBean.novo()}" />
+
+		</h:form>
+
+		<h:form id="lista">
+			<h:dataTable value="#{clienteBean.lista}" var="cliente" border="1"
+				rendered="#{not empty clienteBean.lista}">
+				<f:facet name="header">Listagem de Clientes</f:facet>
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
 			    #{cliente.nome}
 			   </h:column>
 
@@ -52,40 +56,45 @@
 			    </h:column>
 
 				<h:column>
-			   <f:facet name="header">E-mail</f:facet>
+					<f:facet name="header">E-mail</f:facet>
 			    #{cliente.email}
 			   </h:column>
-			   
-			   <h:column>
-			   <f:facet name="header">Endereco</f:facet>
+
+				<h:column>
+					<f:facet name="header">Endereco</f:facet>
 			    #{cliente.endereco}
 			   </h:column>
-			    
-			   <h:column>
-					<f:facet name="header">Renda</f:facet>
-					<h:outputText value="#{cliente.renda}" >
-					<!-- 
-					<f:convertNumber currencyCode="BRL " type="currency" />  -->
-					</h:outputText>			    
-			   </h:column>
-			   
-			   <h:column>
-			    <f:facet name="header">Ações</f:facet>
-			    <h:commandLink  action="#{clienteBean.excluir}" onclick="if (!confirm('Deseja realmente o excluir o cliente #{cliente.nome}?')) return false;" >
-			    <h:graphicImage library="imagens" name="Delete.png" />
-			    <f:setPropertyActionListener target="#{clienteBean.clienteSelecionado}" value="#{cliente}" />	    
-			    
-			    </h:commandLink>
-			   
-			   </h:column>
-			  
-			    </h:dataTable>
-			
-			
-			</h:form>
-				
 
-			</ui:define>
-	</ui:composition>
+				<h:column>
+					<f:facet name="header">Renda</f:facet>
+					<h:outputText value="#{cliente.renda}">
+						<!-- 
+					<f:convertNumber currencyCode="BRL " type="currency" />  -->
+					</h:outputText>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Ações</f:facet>
+					<h:commandLink action="#{clienteBean.excluir}"
+						onclick="if (!confirm('Deseja realmente o excluir o cliente #{cliente.nome}?')) return false;">
+						<h:graphicImage library="imagens" name="Delete.png" />
+						<f:setPropertyActionListener target="#{clienteBean.clienteSelecionado}" value="#{cliente}" />
+					</h:commandLink>
+					
+					<h:commandLink >
+						<h:graphicImage library="imagens" name="EditW.gif" />
+						<f:setPropertyActionListener target="#{clienteBean.clienteSelecionado}" value="#{cliente}" />
+					</h:commandLink>
+
+				</h:column>
+
+			</h:dataTable>
+
+
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>
 
 </html>
