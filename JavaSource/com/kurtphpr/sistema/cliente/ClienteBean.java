@@ -32,6 +32,7 @@ public class ClienteBean {
 			contexto.addMessage(null,faces);
 		}
 		this.lista = null;
+		this.clienteSelecionado = new Cliente();
 	}
 	
 	public Cliente getClienteSelecionado() {

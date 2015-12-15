@@ -65,11 +65,11 @@
 			    #{cliente.endereco}
 			   </h:column>
 
-				<h:column>
+				<h:column columnClasses="column1">
 					<f:facet name="header">Renda</f:facet>
 					<h:outputText value="#{cliente.renda}">
-						<!-- 
-					<f:convertNumber currencyCode="BRL " type="currency" />  -->
+						
+					<f:convertNumber currencyCode="BRL" type="currency" />  
 					</h:outputText>
 				</h:column>
 
