@@ -10,8 +10,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.kurtphpr.sistema.Produto.Produto;
+import com.kurtphpr.sistema.Produto.ProdutoRN;
 import com.kurtphpr.sistema.cliente.Cliente;
 import com.kurtphpr.sistema.cliente.ClienteRN;
+import com.kurtphpr.sistema.venda.Venda;
+import com.kurtphpr.sistema.venda.VendaRN;
 
 //import org.junit.Test;
 
@@ -52,7 +55,7 @@ public class VendaTest extends TestHeranca {
 		vendaRN.registraVenda(c2,p2);
 		vendaRN.registraVenda(c3,p3);
 		
-		List<Venda> vendas = vendaRN.vendas();
+		List<Venda> vendas = vendaRN.listar();
 		
 		assertEquals(3, vendas.size());
 		
