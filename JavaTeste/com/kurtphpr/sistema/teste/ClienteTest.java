@@ -17,38 +17,8 @@ import com.kurtphpr.sistema.cliente.Cliente;
 import com.kurtphpr.sistema.cliente.ClienteRN;
 import com.kurtphpr.sistema.vendas.HibernateUtil;
 
-public class ClienteTest {
-	
-	private static Session sessao;
-	private static Transaction transacao;
-	
-	@BeforeClass
-	public static void abreConexao(){
-		sessao = HibernateUtil.getSession().getCurrentSession();
-		transacao = sessao.beginTransaction();
-	}
-	
-	@AfterClass
-	public static void fechaConexao(){
-		
-		try {
-			transacao.commit();
-			
-		} catch (Throwable e) {
-		System.out.println("Deu problema no commit: "+e.getMessage());
-		}finally{
-			try {
-				if(sessao.isOpen()){
-					sessao.close();
-				}
-				
-			} catch (Exception e) {
-				System.out.println("deu erro no fechamento da sessão "+e.getMessage());
-			}
-			
-		}
-	}
-	
+public class ClienteTest  extends TestHeranca
+{
 	@Before
 	public void setup(){
 		Cliente c1 = new Cliente("71246856131","testeum@teste.com.br", "Rua: um", "Cliente um", new Date(), 1000);
